@@ -30,8 +30,8 @@ export default class RideScreen extends Component {
       bikeType: "",
       userName: "",
       //email: firebase.auth()
-      email: firebase.auth().email
-      //email: firebase.auth().currentUser.email
+      //email: firebase.auth().email
+      email: firebase.auth().currentUser.email
       //email: firebase.auth().currentUser
     };
   }
@@ -105,16 +105,16 @@ export default class RideScreen extends Component {
       if (isEligible) {
         var { bikeType, userName } = this.state;
         this.returnBike(bikeId, userId, bikeType, userName, email);
-        Alert.alert("Esperamos que tenha gostado do seu passeio");
+        
         this.setState({
           bikeAssigned: false
         });
 
         // For Android users only
-        // ToastAndroid.show(
-        //   "Esperamos que tenha gostado do seu passeio",
-        //   ToastAndroid.SHORT
-        // );
+         ToastAndroid.show(
+           "Esperamos que tenha gostado do seu passeio",
+           ToastAndroid.SHORT
+         );
       }
     }
   };
