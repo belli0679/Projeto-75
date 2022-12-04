@@ -84,18 +84,16 @@ export default class RideScreen extends Component {
       if (isEligible) {
         var { bikeType, userName } = this.state;
         this.assignBike(bikeId, userId, bikeType, userName, email);
-        Alert.alert(
-          "Você alugou a bicicleta pela próxima 1 hora. Aproveite seu passeio!!"
-        );
+        
         this.setState({
           bikeAssigned: true
         });
 
         // For Android users only
-        // ToastAndroid.show(
-        //   "Você alugou a bicicleta pela próxima 1 hora. Aproveite seu passeio!!",
-        //   ToastAndroid.SHORT
-        // );
+         ToastAndroid.show(
+           "Você alugou a bicicleta pela próxima 1 hora. Aproveite seu passeio!!",
+           ToastAndroid.SHORT
+         );
       }
     } else {
       var isEligible = await this.checkUserEligibilityForEndRide(
